@@ -1,0 +1,23 @@
+.side-bar{
+  background-color: #f5a500;
+  width: 230px;
+  height: 100vh;
+  float: left;
+
+  &__user{
+    background-color: #7ecce0;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__name{
+    }
+  }
+
+  &__menue{
+    margin: 50px;
+    &__device{
+      margin-top: 50px;
+    }
+  }
+}

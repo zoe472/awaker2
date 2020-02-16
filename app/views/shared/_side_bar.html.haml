@@ -1,0 +1,31 @@
+.side-bar
+  .side-bar__user
+    .side-bar__user__name
+    ようこそ Awaker さん
+  .side-bar__menue
+    = link_to "/",class:"side-bar__menue__link" do
+      HOME
+  .side-bar__menue
+    - if user_signed_in?
+      .side-bar__menue__device
+        = link_to users_path,class:"side-bar__menue__link" do
+          マイページ 
+      .side-bar__menue__device
+        = link_to new_tweet_path,class:"side-bar__menue__link" do
+          投稿する
+      .side-bar__menue__device
+        = link_to destroy_user_session_path, method: :delete,class:"side-bar__menue__link" do
+          ログアウト
+    - else
+      .side-bar__menue__device
+      = link_to new_user_session_path,class:"side-bar__menue__link" do
+        サインイン
+      .side-bar__menue__device
+      = link_to new_user_registration_path,class:"side-bar__menue__link" do
+        新規登録
+  .side-bar__menue
+    = link_to "#",class:"side-bar__menue__link" do
+      [mitete]って何？
+  .side-bar__menue
+    = link_to "#",class:"side-bar__menue__link" do
+      SHOP
