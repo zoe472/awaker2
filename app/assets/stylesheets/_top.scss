@@ -1,0 +1,33 @@
+.top{
+  &__title{
+    background-color: #92cb97;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__search{
+      background-color: #f5d100;
+      height: 50px;
+      width: 250px;
+      float: right;
+      margin-right: 10px;
+      &__box{
+        text-align: center;
+      }
+    }
+
+  }
+  &__menue{
+    // background-color: #f9e900;
+    height: 100vh;
+    width: 160px;
+    float: right;
+   
+    &__item{
+      background-color: #f5d100;
+      height: 60px;
+      width: 160px;
+      margin: 20px;
+    }
+  }
+}
