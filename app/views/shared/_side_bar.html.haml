@@ -1,7 +1,12 @@
 .side-bar
   .side-bar__user
     .side-bar__user__name
-    ようこそ Awaker さん
+      - if user_signed_in?
+        Welcome!
+        %br/
+        = current_user.nickname
+      - else
+        ようこそ！
   .side-bar__menue
     = link_to "/",class:"side-bar__menue__link" do
       HOME

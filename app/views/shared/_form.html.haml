@@ -1,17 +1,19 @@
-.item
-  .item__title
-    .item__title__title
-      投稿アカウント名
-  .item__image
-    投稿する写真を選択
-  .item__date
-    .item__date__catedategory
-      <カテゴリー>　パーカー
-    .item__date__comment
-      投稿時のコメント
-    .item__date__bottan
-      .item__date__bottan__good
-        キャンセル
-      .item__date__bottan__shop
-        投稿する
+= form_with model: @tweet, local: true do |f|
+  .item
+    .item__title
+      .item__title__title
+        投稿アカウント名
+    .item__image
+      = f.file_field :image, class: 'hidden'
+    .item__date
+      .item__date__catedategory
+        = f.select :budget_d, [["メンズ", 0],["レディース", 1],["キッズ", 2],["パーカー",3],["スウェット",4],["Tシャツ",5],["ロンパース",6],["アウター",7]]
+      .item__date__comment
+        = f.text_area :text, placeholder: "text" , rows: "10"
+      .item__date__bottan
+        .item__date__bottan__good
+          キャンセル
+        .item__date__bottan__shop
+          = f.submit "投稿する"
+        
     

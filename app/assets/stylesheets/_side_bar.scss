@@ -5,13 +5,12 @@
   float: left;
 
   &__user{
-    background-color: #7ecce0;
+    background-color: #dc4f03;
     height: 100px;
     display: flex;
+    font-size: 30px;
     justify-content: center;
     align-items: center;
-    &__name{
-    }
   }
 
   &__menue{
