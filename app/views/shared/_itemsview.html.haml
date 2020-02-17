@@ -1,18 +1,19 @@
-.item
-  .item__title
-    .item__title__name
+.iitem
+  .iitem__title
+    .iitem__title__name
       = link_to "/",class:"item__title__name" do
         ←
-      投稿アカウント名
-  .item__image
-    aaa
-  .item__date
-    .item__date__catedategory
-      <カテゴリー>　パーカー
-    .item__date__bottan
-      .item__date__bottan__good
+      = @tweet.user.nickname
+      さんの投稿♪
+  .iitem__image
+    = image_tag @tweet.image.url, class: "iitem__image__photo"
+  .iitem__date
+    .iitem__date__catedategory
+      = @tweet.category
+    .iitem__date__bottan
+      .iitem__date__bottan__good
         いいね！
-      .item__date__bottan__shop
+      .iitem__date__bottan__shop
         SHOP
-    .item__date__comment
-      投稿時のコメント
+    .iitem__date__comment
+      = @tweet.text

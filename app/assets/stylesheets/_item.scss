@@ -1,4 +1,6 @@
 .item{
+  width: calc(100% - 230px);
+  margin-left: 230px;
   &__box{
     background-color: #7ecce0;
     color: white;

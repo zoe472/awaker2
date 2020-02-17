@@ -6,6 +6,33 @@
 @import "./form";
 @import "./mypage_bar";
 
+html {
+  height: 100%;
+}
+
 body{
+  height: 100%;
+  margin: 0;
   font-family: 'Wawati SC','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',YuGothic,'Yu Gothic',sans-serif;
+}
+
+.title{
+  font-size: 25px;
+  margin-top: 5%;
+  margin-left: 45%;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #232323;
+  background: #fff8e8;
+  border-left: solid 10px #ffc06e;
+}
+.field__content{
+  font-size: 25px;
+  margin-left: 35%;
+  padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #00BCD4;
+    background: #e4fcff;/*背景色*/
+    border-top: solid 6px #1dc1d6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
 }
