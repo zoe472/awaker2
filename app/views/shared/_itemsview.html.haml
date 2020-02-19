@@ -12,7 +12,13 @@
       = @tweet.category
     .iitem__date__bottan
       .iitem__date__bottan__good
-        いいね！
+        -# = @tweet.likes.count
+        - if current_user.already_liked?(@tweet)
+          = button_to 'いいね済み', tweet_like_path(@tweet), method: :delete, class: "iitem__date__bottan__good__push"
+        - else
+          = button_to 'いいね', tweet_likes_path(@tweet), class: "iitem__date__bottan__good__push"
+        = @tweet.likes.count
+      .iitem__date__bottan__good
       .iitem__date__bottan__shop
         SHOP
     .iitem__date__comment

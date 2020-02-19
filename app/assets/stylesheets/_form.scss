@@ -26,6 +26,7 @@
       margin-top: 24px;
       margin-left: 50px;
       background-color: #f3e300;
+      position: relative;
     }
     &__bottan{
       display: flex;
@@ -48,8 +49,21 @@
       background-color: #fff426;
       margin-left: 50px;
       margin-top: 10px;
+      position: relative;
       width: 450px;
       height: 300px;
+      &__text{
+        position: absolute;
+        // background-color: #f8f398;
+        width: 420px;
+        height: 270px;
+        // padding: 20px;             
+        top:  10px;                   
+        bottom:  10px;                  
+        left:  10px;                   
+        right:  10px;                   
+        margin:  auto;    
+      }
     }
   }
   
