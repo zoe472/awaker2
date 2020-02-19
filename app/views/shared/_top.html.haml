@@ -1,0 +1,46 @@
+.top
+  .top__title
+    .top__title__logo
+      MITETE!!
+    .top__title__search
+      .top__title__search__box
+        = form_with(url: tweets_searches_path, local: true, method: :get, class: "search-form") do |form|
+          = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
+          = form.submit "検索", class: "search-btn"
+
+        
+
+  .top__menue
+    
+    .top__menue__item
+      = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+        = form.text_field :keyword, value: "メンズ", class: "top__menue__item__form__text"
+        = form.submit "メンズ", class: "top__menue__item__form__btn"
+    .top__menue__item
+      = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+        = form.text_field :keyword, value: "レディース", class: "top__menue__item__form__text"
+        = form.submit "レディース", class: "top__menue__item__form__btn"
+    .top__menue__item
+      = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+        = form.text_field :keyword, value: "キッズ", class: "top__menue__item__form__text"
+        = form.submit "キッズ", class: "top__menue__item__form__btn"
+    .top__menue__item
+      = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+        = form.text_field :keyword, value: "パーカー", class: "top__menue__item__form__text"
+        = form.submit "パーカー", class: "top__menue__item__form__btn"
+    .top__menue__item
+      = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+        = form.text_field :keyword, value: "スウェット", class: "top__menue__item__form__text"
+        = form.submit "スウェット", class: "top__menue__item__form__btn"
+    .top__menue__item
+      = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+        = form.text_field :keyword, value: "Tシャツ", class: "top__menue__item__form__text"
+        = form.submit "Tシャツ", class: "top__menue__item__form__btn"
+    .top__menue__item
+      = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+        = form.text_field :keyword, value: "ロンパース", class: "top__menue__item__form__text"
+        = form.submit "ロンパース", class: "top__menue__item__form__btn"
+    .top__menue__item
+      = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+        = form.text_field :keyword, value: "アウター", class: "top__menue__item__form__text"
+        = form.submit "アウター", class: "top__menue__item__form__btn"

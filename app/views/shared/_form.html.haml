@@ -2,14 +2,14 @@
   .item
     .item__title
       .item__title__title
-        投稿アカウント名
+        新規投稿
     .item__image
       = f.file_field :image, class: 'hidden'
     .item__date
       .item__date__catedategory
-        = f.select :budget_d, [["メンズ", 0],["レディース", 1],["キッズ", 2],["パーカー",3],["スウェット",4],["Tシャツ",5],["ロンパース",6],["アウター",7]]
+        = f.select :category, [["メンズ", "メンズ"],["レディース", "レディース"],["キッズ", "キッズ"],["パーカー","パーカー"],["スウェット","スウェット"],["Tシャツ","Tシャツ"],["ロンパース","ロンパース"],["アウター","アウター"]]
       .item__date__comment
-        = f.text_area :text, placeholder: "text" , rows: "10"
+        = f.text_area :text, placeholder: "コメントを入力" , rows: "10",class: 'item__date__comment__text'
       .item__date__bottan
         .item__date__bottan__good
           キャンセル
