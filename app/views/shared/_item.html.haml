@@ -1,42 +1,16 @@
  
 .item
-  - if user_signed_in?
-    .item__title
-      -# 新着アイテム♪
-    - @tweets.each do |tweet|
-      .item__box
-        = link_to "/tweets/#{tweet.id}", method: :get, class: "item__link" do
-          = image_tag tweet.image.url, class: "item__box__view"
-        .item__box__category
-          = tweet.category
-        .item__box__text
-          = tweet.text
-
-    -# .item__box
-    -#   = link_to "tweets/show", class: "item__link" do
-    -#     = image_tag "awaker2.png", class: "item__box__view"
-    -#   .item__box__category
-    -#     パーカー
-    -#   .item__box__image
-    -#   .item__box__text
-    -#     かっこいい！
-
-
-    -# .item__box
-    -#   = link_to "tweets/show", class: "item__link" do
-    -#     = image_tag "awaker3.png", class: "item__box__view"
-    -#   .item__box__category
-    -#     パーカー
-    -#   .item__box__image
-    -#   .item__box__text
-    -#     かっこいい！
-
-    -# .item__box
-    -#   .item__box__category
-    -#     パーカー
-    -#   .item__box__image
-    -#   .item__box__text
-    -#     かっこいい！
-  - else 
-    .item__title
-      ログインしてね！
+  .item__title
+    -# 新着アイテム♪
+  - @tweets.each do |tweet|
+    .item__box
+      = link_to "/tweets/#{tweet.id}", method: :get, class: "item__link" do
+        = image_tag tweet.image.url, class: "item__box__view"
+      .item__box__category
+        = tweet.category
+      .item__box__text
+        = tweet.text
+      .item__box__box
+        - if user_signed_in? && current_user.id == tweet.user_id
+          = link_to "/tweets/#{tweet.id}", method: :delete, class: "item__box__delete" do
+            %i.fas.fa-window-close
