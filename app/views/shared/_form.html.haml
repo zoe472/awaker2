@@ -4,13 +4,12 @@
       .item__title__title
         新規投稿
     .item__image
-      -# %div{{id: "img_field"}{:onclick => "$('#file').click()"}}
       - if @tweet.image.url.present?
-        = image_tag(@tweet.image.url, id: :img_prev)
-      - else
-        %i.fas.fa-image
-      = f.file_field :image, class: 'hidden', id: "file"
-      
+        = image_tag @tweet.image.url, onClick:"$('#picture').click()", class: 'item__image__hidden', id: "preview"
+        = f.file_field :image, class: 'hidden', style: "display:none;", id: "picture"
+      - else 
+        = image_tag "by.png", onClick:"$('#picture').click()", class: 'item__image__hidden', id: "preview"
+        = f.file_field :image, class: 'hidden', style: "display:none;", id: "picture"
 
     .item__date
       .item__date__catedategory

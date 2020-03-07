@@ -15,6 +15,14 @@
     float: left;
     margin-top: 20px;
     margin-left: 20px;
+    position: relative;
+    &__hidden{
+      position: absolute;
+      max-width: 100%;
+      max-height: 100%;
+      top: 50%;
+      transform: translateY(-50%)
+    }
   }
   &__date{
     display: flex;
