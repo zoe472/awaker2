@@ -2,8 +2,10 @@
   .iitem__title
     .iitem__title__name
       = link_to "/",class:"item__title__name" do
-        ←
-      = @tweet.user.nickname
+        %i.fas.fa-angle-double-left
+    .iitem__title__nam
+      = link_to "/users/#{@tweet.user.id}",class:"item__title__na" do
+        = @tweet.user.nickname
       さんの投稿♪
   .iitem__image
     = image_tag @tweet.image.url, class: "iitem__image__photo"
@@ -12,7 +14,6 @@
       = @tweet.category
     .iitem__date__bottan
       .iitem__date__bottan__good
-        -# = @tweet.likes.count
         - if current_user.already_liked?(@tweet)
           = button_to 'いいね済み', tweet_like_path(@tweet), method: :delete, class: "iitem__date__bottan__good__push"
         - else
@@ -20,6 +21,32 @@
         = @tweet.likes.count
       .iitem__date__bottan__good
       .iitem__date__bottan__shop
-        SHOP
+        - if @tweet.category == "メンズ"
+          = link_to "https://awaker.paintory.com/product-category/cat001/" do
+            SHOP
+        - elsif @tweet.category == "レディース"
+          = link_to "https://awaker.paintory.com/product-category/cat002/" do
+            SHOP
+        - elsif @tweet.category == "キッズ"
+          = link_to "https://awaker.paintory.com/product-category/cat003/" do
+            SHOP
+        - elsif @tweet.category == "パーカー"
+          = link_to "https://awaker.paintory.com/product-category/cat030/" do
+            SHOP
+        - elsif @tweet.category == "スウェット"
+          = link_to "https://awaker.paintory.com/product-category/cat040/" do
+            SHOP
+        - elsif @tweet.category == "Tシャツ"
+          = link_to "https://awaker.paintory.com/product-category/cat010/" do
+            SHOP
+        - elsif @tweet.category == "ロンパース"
+          = link_to "https://awaker.paintory.com/product-category/cat020/" do
+            SHOP
+        - elsif @tweet.category == "アウター"
+          = link_to "https://awaker.paintory.com/product-category/cat080/" do
+            SHOP
+        - else
+          = link_to "https://awaker.paintory.com/" do
+            SHOP
     .iitem__date__comment
       = @tweet.text

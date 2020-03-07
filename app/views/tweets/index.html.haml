@@ -1,7 +1,7 @@
 .wrapper
   = render "shared/side_bar"
-  = render "shared/top"
   - if user_signed_in?
+    = render "shared/top"
     = render "shared/item"
   - else 
     ログインしてね！
