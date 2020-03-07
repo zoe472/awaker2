@@ -4,7 +4,14 @@
       .item__title__title
         新規投稿
     .item__image
-      = f.file_field :image, class: 'hidden'
+      -# %div{{id: "img_field"}{:onclick => "$('#file').click()"}}
+      - if @tweet.image.url.present?
+        = image_tag(@tweet.image.url, id: :img_prev)
+      - else
+        %i.fas.fa-image
+      = f.file_field :image, class: 'hidden', id: "file"
+      
+
     .item__date
       .item__date__catedategory
         = f.select :category, [["メンズ", "メンズ"],["レディース", "レディース"],["キッズ", "キッズ"],["パーカー","パーカー"],["スウェット","スウェット"],["Tシャツ","Tシャツ"],["ロンパース","ロンパース"],["アウター","アウター"]]
@@ -14,6 +21,6 @@
         .item__date__bottan__good
           キャンセル
         .item__date__bottan__shop
-          = f.submit "投稿する"
+          = f.submit "投稿する", class: 'item__date__bottan__shop__send'
         
     

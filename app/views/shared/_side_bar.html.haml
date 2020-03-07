@@ -6,6 +6,8 @@
         %br/
         = current_user.nickname
       - else
+        MITETEへ
+        %br/
         ようこそ！
   .side-bar__menue
     = link_to "/",class:"side-bar__menue__link" do
@@ -13,7 +15,7 @@
   .side-bar__menue
     - if user_signed_in?
       .side-bar__menue__device
-        = link_to users_path,class:"side-bar__menue__link" do
+        = link_to "/users/#{current_user.id}",class:"side-bar__menue__link" do
           マイページ 
       .side-bar__menue__device
         = link_to new_tweet_path,class:"side-bar__menue__link" do
@@ -32,5 +34,5 @@
     = link_to "#",class:"side-bar__menue__link" do
       [mitete]って何？
   .side-bar__menue
-    = link_to "#",class:"side-bar__menue__link" do
+    = link_to "https://awaker.paintory.com/",class:"side-bar__menue__link" do
       SHOP

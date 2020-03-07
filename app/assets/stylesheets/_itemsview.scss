@@ -1,12 +1,22 @@
 .iitem{
   &__title{
     padding-left: 20px;
+    display: flex;
     
     &__name{
-      // float: left;
       font-size: 30px;
       padding-top: 30px;
+      display: inline-block;
+      text-decoration: none;
     }
+    &__nam{
+      font-size: 2em;
+      margin-top: 22px;
+      color: #666;
+      margin-left: 20px;
+     
+    }
+    
     
   }
   &__image{
