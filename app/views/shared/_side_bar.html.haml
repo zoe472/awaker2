@@ -15,7 +15,7 @@
   .side-bar__menue
     - if user_signed_in?
       .side-bar__menue__device
-        = link_to "/users/#{current_user.id}",class:"side-bar__menue__link" do
+        = link_to "/users/",class:"side-bar__menue__link" do
           マイページ 
       .side-bar__menue__device
         = link_to new_tweet_path,class:"side-bar__menue__link" do

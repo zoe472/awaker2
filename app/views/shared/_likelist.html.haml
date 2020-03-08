@@ -1,0 +1,17 @@
+.item
+  いいねした投稿
+  - @likes.each do |like|
+  .item__title
+    - tweet = Tweet.find_by(id: like.tweet_id)
+      -# 新着アイテム♪
+      .item__box
+        = link_to "/tweets/#{tweet.id}", method: :get, class: "item__link" do
+          = image_tag tweet.image.url, class: "item__box__view"
+        .item__box__category
+          = tweet.category
+        .item__box__text
+          = tweet.text
+        .item__box__box
+          - if user_signed_in? && current_user.id == tweet.user_id
+            = link_to "/tweets/#{tweet.id}", method: :delete, class: "item__box__delete" do
+              %i.fas.fa-window-close
