@@ -1,11 +1,11 @@
 @import "./reset";
 @import "config/colors";
 @import "./side_bar";
+@import "./mypage_bar";
 @import "./top";
 @import "./item";
 @import "./itemsview";
 @import "./form";
-@import "./mypage_bar";
 @import "modules/flash";
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -17,8 +17,6 @@ html, body{
   margin: 0;
   font-family: 'Wawati SC','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',YuGothic,'Yu Gothic',sans-serif;
   background-color: #eaf2fb;
-  height: auto;
-  min-height: 100%;
 	background-image:
 	 linear-gradient(#ecebeb 50%, transparent 50%, transparent);
 	background-size: 10px 10px;
