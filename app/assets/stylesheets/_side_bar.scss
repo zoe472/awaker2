@@ -1,25 +1,169 @@
 .side-bar{
-  position: fixed;
-  background-color: #f5a500;
+  background-color: #ffffff;
   font-size: 1.3em;
-  width: 230px;
-  height: 100%;
+  width: 100%;
+  height: 115px;
   float: left;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px #ddd solid;
+  z-index: 1;
+  &__decolate{
+    border-top: 2px #ddd solid;
+  }
  
 
   &__user{
-    background-color: #dc4f03;
-    height: 100px;
     display: flex;
-    font-size: 30px;
-    justify-content: center;
     align-items: center;
+    margin: 0 20% 0 20%;
+    &__icon{
+      height: 60px;
+      width: auto;
+      margin-right: 15px;
+      padding-top: 5px;
+    }
   }
 
   &__menue{
-    margin: 50px;
+    position: relative;
+    margin: 0 10% 0 10%;
     &__device{
-      margin-top: 50px;
+      display:inline-block;
+      padding-right: 6%;
+      &__icon{
+        height: 30px;
+        width: auto;
+        border-radius: 50%;
+        border: 1px #ddd solid;
+      }
     }
   }
+}
+.search__box{
+  width: 100%;
+  &__form{
+    position: relative;
+    width: 100%;
+  }
+  &__input{
+    background-color: rgb(244, 244, 244);
+    font-size: 25px;
+    height: 40px;
+    line-height: 1.4em;
+    position: relative;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(204, 204, 204);
+    border-image: initial;
+    border-radius: 4px;
+    outline: none;
+    padding: 0px 10px 0px 10px;
+    transition: all 0.3s ease-out 0s;
+  }
+  &__btn{
+    position: absolute;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    cursor: pointer;
+    border-radius: 0px 4px 4px 0px;
+    padding: 0px;
+    height: 40px;
+    right: 0px;
+    top: 0px;
+    width: 40px;
+    background-color: transparent;
+    i{
+      max-width: 100%;
+      max-height: 100%;
+      color: rgb(34, 34, 34);
+      height: 14px;
+      margin-top: 2px;
+      width: 14px;
+      font-size: 1.5em;
+    }
+  }
+}
+
+.submit-button{
+  position: fixed;
+  bottom: 58px;
+  font-size: 22px;
+  height: 160px;
+  right: 32px;
+  width: 160px;
+  z-index: 10;
+  &__link{
+    display: block;
+  }
+  
+  &__content{
+    width: 160px;
+    height: 160px;
+    padding-top: 32px;
+    background-color: rgb(230, 82, 28);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    &__picture{
+      i{
+        height: 54px;
+        margin-top: 8px;
+        max-width: 100%;
+        max-height: 100%;
+        font-size: 3.5em;
+        color: rgb(255, 255, 255);
+        display: block;
+      }
+    }
+  }
+  &__content:hover{
+    background-color: rgb(181, 48, 0);
+  }
+}
+.top{
+  &__menue{
+    position: absolute;
+    visibility: hidden;
+    width: 150px;
+    &__item{
+      &__form{
+        &__text{
+          display: none;
+        }
+        &__btn{
+          top: 40px;
+          width: 110%;
+          line-height: 44px;
+          background: rgb(249, 249, 249);
+          transition: all .2s ease;
+          padding: 5px;
+          font-size: 15px;
+        }
+        &__btn:hover{
+          background: rgb(247, 165, 102);
+          color: honeydew;
+        }
+      }
+    }
+  }
+}
+
+.pulldown:hover .top__menue{
+  visibility: visible;
+}
+.pulldown:hover{
+  background-color: rgb(247, 165, 102);
+  color: white;
+}
+.pulldown:hover .side-bar__menue__link{
+  color: white;
+}
+
+.margin{
+  padding-right: 25%;
 }

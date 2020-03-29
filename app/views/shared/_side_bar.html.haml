@@ -1,38 +1,102 @@
 .side-bar
   .side-bar__user
-    .side-bar__user__name
+    = link_to "/",class:"side-bar__user__link" do
+      = image_tag "111.png" ,class: "side-bar__user__icon"
+    -# - if user_signed_in?
+    -#   Welcome!
+    -#   = current_user.nickname
+    -# - else
+    -#   MITETEへ
+    -#   ようこそ！
+      
+    .search__box
+      = form_with(url: tweets_searches_path, local: true, method: :get, class: "search__box__form") do |form|
+        = form.text_field :keyword, placeholder: "投稿を検索する", class: "search__box__input"
+        = button_tag type: 'submit', class: "search__box__btn" do
+          %i.fas.fa-search
+
+  .side-bar__decolate
+    .side-bar__menue
       - if user_signed_in?
-        Welcome!
-        %br/
-        = current_user.nickname
+        %ul.mycate
+          %li.side-bar__menue__device.pulldown
+            %i.fas.fa-list
+            = link_to "カテゴリ","#",class:"side-bar__menue__link"
+            %ul.top__menue
+              %li.top__menue__item
+                = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+                  = form.text_field :keyword, value: "メンズ", class: "top__menue__item__form__text"
+                  = form.submit "メンズ", class: "top__menue__item__form__btn"
+              %li.top__menue__item
+                = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+                  = form.text_field :keyword, value: "レディース", class: "top__menue__item__form__text"
+                  = form.submit "レディース", class: "top__menue__item__form__btn"
+              %li.top__menue__item
+                = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+                  = form.text_field :keyword, value: "キッズ", class: "top__menue__item__form__text"
+                  = form.submit "キッズ", class: "top__menue__item__form__btn"
+              %li.top__menue__item
+                = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+                  = form.text_field :keyword, value: "パーカー", class: "top__menue__item__form__text"
+                  = form.submit "パーカー", class: "top__menue__item__form__btn"
+              %li.top__menue__item
+                = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+                  = form.text_field :keyword, value: "スウェット", class: "top__menue__item__form__text"
+                  = form.submit "スウェット", class: "top__menue__item__form__btn"
+              %li.top__menue__item
+                = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+                  = form.text_field :keyword, value: "Tシャツ", class: "top__menue__item__form__text"
+                  = form.submit "Tシャツ", class: "top__menue__item__form__btn"
+              %li.top__menue__item
+                = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+                  = form.text_field :keyword, value: "ロンパース", class: "top__menue__item__form__text"
+                  = form.submit "ロンパース", class: "top__menue__item__form__btn"
+              %li.top__menue__item
+                = form_with(url: tweets_searches_path, local: true, method: :get, class: "top__menue__item__form") do |form|
+                  = form.text_field :keyword, value: "アウター", class: "top__menue__item__form__text"
+                  = form.submit "アウター", class: "top__menue__item__form__btn"
+          %li.side-bar__menue__device.pulldown
+            = link_to "#",class:"side-bar__menue__link " do
+              [MITETE]って何？
+          %li.side-bar__menue__device.margin
+            = link_to "https://awaker.paintory.com/",class:"side-bar__menue__link " do
+              SHOP
+          %li.side-bar__menue__device.pulldown
+            = link_to "/users/",class:"side-bar__menue__link" do
+              = image_tag "first-icon.PNG" ,class: "side-bar__menue__device__icon"
+              = current_user.nickname
+            %ul.top__menue
+              %li.top__menue__item__form__btn
+                = link_to "#",class:"btn" do
+                  プロフィール
+              %li.top__menue__item__form__btn
+                = link_to new_tweet_path,class:"btn" do
+                  投稿する
+              %li.top__menue__item__form__btn
+                = link_to "/users/#{current_user.id}",class:"btn" do
+                  自分の投稿
+              %li.top__menue__item__form__btn
+                = link_to "/users/#{current_user.id}/like",class:"btn" do
+                  いいねした投稿
+              %li.top__menue__item__form__btn
+                = link_to "#",class:"btn" do
+                  設定
+              %li.top__menue__item__form__btn
+                = link_to destroy_user_session_path, method: :delete, class:"btn" do
+                  ログアウト
       - else
-        MITETEへ
-        %br/
-        ようこそ！
-  .side-bar__menue
-    = link_to "/",class:"side-bar__menue__link" do
-      HOME
-  .side-bar__menue
-    - if user_signed_in?
-      .side-bar__menue__device
-        = link_to "/users/",class:"side-bar__menue__link" do
-          マイページ 
-      .side-bar__menue__device
-        = link_to new_tweet_path,class:"side-bar__menue__link" do
-          投稿する
-      .side-bar__menue__device
-        = link_to destroy_user_session_path, method: :delete,class:"side-bar__menue__link" do
-          ログアウト
-    - else
-      .side-bar__menue__device
-      = link_to new_user_session_path,class:"side-bar__menue__link" do
-        サインイン
-      .side-bar__menue__device
-      = link_to new_user_registration_path,class:"side-bar__menue__link" do
-        新規登録
-  .side-bar__menue
-    = link_to "#",class:"side-bar__menue__link" do
-      [mitete]って何？
-  .side-bar__menue
-    = link_to "https://awaker.paintory.com/",class:"side-bar__menue__link" do
-      SHOP
+        .side-bar__menue__device
+        = link_to new_user_session_path,class:"side-bar__menue__link" do
+          サインイン
+        .side-bar__menue__device
+        = link_to new_user_registration_path,class:"side-bar__menue__link" do
+          新規登録
+    
+.submit-button
+  - unless controller_name == "users" or controller_name == "searchs" or controller_name == "likes"
+    = link_to new_tweet_path,class:"submit-button__link" do
+      .submit-button__content 
+        %span.submit-button__content__text 投稿する
+        .submit-button__content__picture
+          %i.fas.fa-tshirt
+    
