@@ -1,8 +1,6 @@
 @import "./reset";
 @import "config/colors";
 @import "./side_bar";
-@import "./mypage_bar";
-@import "./top";
 @import "./item";
 @import "./itemsview";
 @import "./form";
@@ -15,11 +13,9 @@
 html, body{
   height: 100%;
   margin: 0;
-  font-family: 'Wawati SC','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',YuGothic,'Yu Gothic',sans-serif;
-  background-color: #eaf2fb;
-	background-image:
-	 linear-gradient(#ecebeb 50%, transparent 50%, transparent);
-	background-size: 10px 10px;
+  // font-family: 'Wawati SC','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',YuGothic,'Yu Gothic',sans-serif;
+  background-color: rgb(230, 230, 230);
+  font-family: "Segoe UI", Helvetica, Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 
 .title{

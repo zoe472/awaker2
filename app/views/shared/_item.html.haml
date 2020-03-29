@@ -1,7 +1,6 @@
  
 .item
   .item__title
-    -# 新着アイテム♪
   - @tweets.each do |tweet|
     .item__box
       = link_to "/tweets/#{tweet.id}", method: :get, class: "item__link" do
