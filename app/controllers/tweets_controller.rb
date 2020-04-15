@@ -2,6 +2,8 @@ class TweetsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   def index
     @tweets = Tweet.includes(:user)
+    @new = Tweet.includes(:user).last(3)
+    @like = Like.new
     # @tweets = Tweet.all
   end
 

@@ -1,25 +1,28 @@
-= form_with model: @tweet, local: true do |f|
-  .item
-    .item__title
-      .item__title__title
-        新規投稿
-    .item__image
-      - if @tweet.image.url.present?
-        = image_tag @tweet.image.url, onClick:"$('#picture').click()", class: 'item__image__hidden', id: "preview"
-        = f.file_field :image, class: 'hidden', style: "display:none;", id: "picture"
-      - else 
-        = image_tag "by.png", onClick:"$('#picture').click()", class: 'item__image__hidden', id: "preview"
-        = f.file_field :image, class: 'hidden', style: "display:none;", id: "picture"
 
-    .item__date
-      .item__date__catedategory
-        = f.select :category, [["メンズ", "メンズ"],["レディース", "レディース"],["キッズ", "キッズ"],["パーカー","パーカー"],["スウェット","スウェット"],["Tシャツ","Tシャツ"],["ロンパース","ロンパース"],["アウター","アウター"]]
-      .item__date__comment
-        = f.text_area :text, placeholder: "コメントを入力" , rows: "10",class: 'item__date__comment__text'
-      .item__date__bottan
-        .item__date__bottan__good
-          キャンセル
-        .item__date__bottan__shop
-          = f.submit "投稿する", class: 'item__date__bottan__shop__send'
-        
-    
+.item
+  .item__title
+    .item__title__title
+      新規投稿
+  .item__form
+    .item__contents
+      = form_with model: @tweet, local: true do |f|
+        .item__image
+          - if @tweet.image.url.present?
+            = image_tag @tweet.image.url, onClick:"$('#picture').click()", class: 'item__image__hidden', id: "preview"
+            = f.file_field :image, class: 'hidden', style: "display:none;", id: "picture"
+          - else 
+            = image_tag "by.png", onClick:"$('#picture').click()", class: 'item__image__hidden', id: "preview"
+            = f.file_field :image, class: 'hidden', style: "display:none;", id: "picture"
+
+        .item__date
+          .item__date__catedategory
+            = f.select :category, [["メンズ", "メンズ"],["レディース", "レディース"],["キッズ", "キッズ"],["パーカー","パーカー"],["スウェット","スウェット"],["Tシャツ","Tシャツ"],["ロンパース","ロンパース"],["アウター","アウター"]]
+          .item__date__comment
+            = f.text_area :text, placeholder: "コメントを入力" , rows: "10",class: 'item__date__comment__text'
+          .item__date__bottan
+            .item__date__bottan__good
+              キャンセル
+            .item__date__bottan__shop
+              = f.submit "投稿する", class: 'item__date__bottan__shop__send'
+            
+      

@@ -1,23 +1,33 @@
 .item{
   &__title{
-    padding-left: 20px;
+    background-color: #fff;
+    padding: 0 0 1% 20%;
     
     &__title{
-      font-size: 30px;
-      padding-top: 30px;
+      padding: 25px 0 0 0;
+      font-size: 22px;
+      font-weight: bold;
+      line-height: 1.5;
     }
     
   }
+  &__contents{
+    padding: 64px;
+  }
+  &__form{
+    width: 990px;
+    margin: 0 auto 0 auto;
+    padding: 20px 0 0 0;
+  }
   &__image{
-    height: 500px;
-    width: 400px;
-    background-color:grey;
-    float: left;
-    margin-top: 20px;
-    margin-left: 20px;
+    padding: 64px;
+    height: 368px;
+    margin: 0 auto 0 auto;
     position: relative;
     &__hidden{
       position: absolute;
+      padding: 64px;
+      background-color:grey;
       max-width: 100%;
       max-height: 100%;
       top: 50%;

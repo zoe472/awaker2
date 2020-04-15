@@ -1,12 +1,12 @@
 .item{
-  width: calc(100% - 230px);
-  margin-left: 230px;
-  padding-top: 20px;
+  width: 100%;
+  padding-top: 115px;
   &__box{
-    background-color: #7ecce0;
+    background-color: #ffffff;
+    border: 1px rgb(198, 198, 198) solid;
     color: white;
-    width: 240px;
-    height: 340px;
+    height: 380px;
+    width: 280px;
     position: relative;
     float: left;
     margin: 10px;
@@ -27,15 +27,28 @@
       font-size: 25px;
     }
     &__box{
-      margin-left: 210px;
+      margin-left: 240px;
       // bottom: 350px;
     }
     &__delete{
       position: absolute;
-      z-index: 10;
+      // z-index: 6;
       text-decoration: none;
       font-size: 2em;
       color: #bd5e8a;
     }
   }
+  &__name{
+    position: absolute;
+    top: 340px;
+    background:  #ffffff;;
+    border: 1px rgb(198, 198, 198) solid;
+    width: 100%;
+    height: 15%;
+    color: rgb(55, 55, 55);
+  }
+}
+.space{
+  margin-top: 35%;
+  margin-left: 35%;
 }
