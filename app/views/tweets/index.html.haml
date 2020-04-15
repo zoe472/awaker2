@@ -1,8 +1,16 @@
 .wrapper
   = render "shared/side_bar"
   - if user_signed_in?
+    ランキング
     新着アイテム
-    = render "shared/item"
+
+    = render "shared/new-list"
+    .submit-button
+      = link_to new_tweet_path,class:"submit-button__link" do
+        .submit-button__content 
+          %span.submit-button__content__text 投稿する
+          .submit-button__content__picture
+            %i.fas.fa-tshirt
   - else 
     ログインしてね！
   
