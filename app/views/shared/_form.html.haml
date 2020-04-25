@@ -18,10 +18,8 @@
           .item__date__catedategory
             = f.select :category, [["メンズ", "メンズ"],["レディース", "レディース"],["キッズ", "キッズ"],["パーカー","パーカー"],["スウェット","スウェット"],["Tシャツ","Tシャツ"],["ロンパース","ロンパース"],["アウター","アウター"]]
           .item__date__comment
-            = f.text_area :text, placeholder: "コメントを入力" , rows: "10",class: 'item__date__comment__text'
+            = f.text_area :text, placeholder: "紹介文を入力" , rows: "10",class: 'item__date__comment__text'
           .item__date__bottan
-            .item__date__bottan__good
-              キャンセル
             .item__date__bottan__shop
               = f.submit "投稿する", class: 'item__date__bottan__shop__send'
             

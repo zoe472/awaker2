@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     end
   end
   resources :tweets do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+    end
     resources :likes, only: [:create, :destroy]
   end
 end
