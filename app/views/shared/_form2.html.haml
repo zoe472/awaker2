@@ -30,15 +30,21 @@
         = f.text_field :catchcopy, placeholder: "例)この季節にぴったりのアイテム！" , rows: "10",class: 'item__date__comment__title'
         %h3
           アイテムのURL
-        = f.text_field :catchcopy, placeholder: "商品ページのリンクなど" , rows: "10",class: 'item__date__comment__title'
+        = f.text_field :url, placeholder: "商品ページのリンクなど" , rows: "10",class: 'item__date__comment__title'
         %h3
           紹介文
         = f.text_area :text, placeholder: "紹介文を入力" , rows: "10",class: 'item__date__comment__text'
         %h3
+          カテゴリー
+        .cp_ipselect.cp_sl01
+          = f.collection_select :category_id, @parents, :id, :name, { prompt: "---" }
+        %h3
           ブランド
-        = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+        .cp_ipselect.cp_sl01
+          = f.collection_select :brand_id, @brand, :id, :name, { prompt: "---" }
         %h3
           タグ(10個まで)
+        = f.text_field :tag_names, placeholder: "例)おすすめ, 長袖, 限定モデル,",class: 'item__date__comment__title', id: 'tag'
         
         .item__date__bottan
           .item__date__bottan__shop
