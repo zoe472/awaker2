@@ -6,14 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-we = Category.create(name: "Awaker")
-other = Category.create(name: "ダミーブランド1")
+we = Category.create(name: "メンズ")
+other = Category.create(name: "レディース")
+we2 = Category.create(name: "キッズ")
+we3 = Category.create(name: "ベビー")
 noselect = Category.create(name: "その他")
 
-we_mens = we.children.create(name: "メンズ")
-we_lady = we.children.create(name: "レディース")
-we_kids = we.children.create(name: "キッズ")
-we_baby = we.children.create(name: "ベビー")
-
-other_item1 = other.children.create(name: "化粧品")
-other_item1 = other.children.create(name: "生活雑貨")
+Brand.create(name: "Awaker")
+Brand.create(name: "ダミーブランド１")
+Brand.create(name: "その他")

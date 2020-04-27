@@ -15,26 +15,21 @@ class TweetsController < ApplicationController
   def new
     @tweet = Tweet.new
     @images = @tweet.toukouimages.build
-    #セレクトボックスの初期値設定
-    @category_parent_array = ["---"]
-    #データベースから、親カテゴリーのみ抽出し、配列化
-    Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-    end
+    @parents = Category.all
+    @brand = Brand.all
   end
 
-  def get_category_children
-    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  end
-
+ 
   def create
+    @parents = Category.all
+    @brand = Brand.all
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
+      tag_list = tag_params[:tag_names].split(/[[:blank:]]+/).select(&:present?)
+      @tweet.save_tags(tag_list)
       redirect_to root_path, notice: 'Itemを投稿しました'
     else
-      flash.now[:alert] = '全ての項目を入力してください。'
-      render :new
+      redirect_to new_tweet_path, notice: 'URL以外の全ての項目を入力してください'
     end
 
   end
@@ -49,9 +44,13 @@ class TweetsController < ApplicationController
 
   
 
-  private
+private
   def tweet_params
-    params.require(:tweet).permit( toukouimages_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:tweet).permit(:catchcopy, :text, :category_id, :url, :brand_id, toukouimages_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
+  def tag_params
+    params.require(:tweet).permit(:tag_names)
   end
 
   def move_to_index
