@@ -1,10 +1,12 @@
 .wrapper
   = render "shared/side_bar"
   - if user_signed_in?
-    ランキング
-    新着アイテム
-
-    = render "shared/new-list"
+    .main-image
+      新着アイテム
+      = render "shared/new-list", { new: @new }
+    .main-image
+      ランキング
+      = render "shared/new-list", { new: @good_ranks }
     .submit-button
       = link_to new_tweet_path,class:"submit-button__link" do
         .submit-button__content 

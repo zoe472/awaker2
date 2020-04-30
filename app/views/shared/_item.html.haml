@@ -3,7 +3,7 @@
   - @tweets.each do |tweet|
     .item__box
       = link_to "/tweets/#{tweet.id}", method: :get, class: "item__link" do
-        = image_tag tweet.image.url, class: "item__box__view"
+        = image_tag tweet.toukouimages.first.image.url, class: "item__box__view"
       .item__box__category
         = tweet.category
       .item__box__text

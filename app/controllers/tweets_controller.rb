@@ -1,8 +1,9 @@
 class TweetsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show, :search]
+  before_action :move_to_index, except: [:index, :search]
   def index
+    @good_ranks = Tweet.includes(:user).find(Like.group(:tweet_id).order('count(tweet_id) desc').limit(4).pluck(:tweet_id))
     @tweets = Tweet.includes(:user)
-    @new = Tweet.includes(:user).last(3)
+    @new = Tweet.includes(:user).last(4)
     @like = Like.new
     # @tweets = Tweet.all
   end
@@ -26,7 +27,9 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
       tag_list = tag_params[:tag_names].split(/[[:blank:]]+/).select(&:present?)
-      @tweet.save_tags(tag_list)
+      if tag_list.length < 6
+        @tweet.save_tags(tag_list)
+      end
       redirect_to root_path, notice: 'Itemを投稿しました'
     else
       redirect_to new_tweet_path, notice: 'URL以外の全ての項目を入力してください'

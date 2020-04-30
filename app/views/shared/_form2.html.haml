@@ -29,7 +29,7 @@
           キャッチコピー(タイトル)
         = f.text_field :catchcopy, placeholder: "例)この季節にぴったりのアイテム！" , rows: "10",class: 'item__date__comment__title'
         %h3
-          アイテムのURL
+          アイテムのURL(販売ページなど)
         = f.text_field :url, placeholder: "商品ページのリンクなど" , rows: "10",class: 'item__date__comment__title'
         %h3
           紹介文
@@ -43,7 +43,7 @@
         .cp_ipselect.cp_sl01
           = f.collection_select :brand_id, @brand, :id, :name, { prompt: "---" }
         %h3
-          タグ(10個まで)
+          タグ(5個まで)
         = f.text_field :tag_names, placeholder: "例)おすすめ, 長袖, 限定モデル,",class: 'item__date__comment__title', id: 'tag'
         
         .item__date__bottan

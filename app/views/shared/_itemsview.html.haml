@@ -1,52 +1,57 @@
+
 .iitem
-  .iitem__title
-    .iitem__title__name
-      = link_to "/",class:"item__title__name" do
-        %i.fas.fa-angle-double-left
-    .iitem__title__nam
-      = link_to "/users/#{@tweet.user.id}",class:"item__title__na" do
-        = @tweet.user.nickname
-      さんの投稿♪
-  .iitem__image
-    = image_tag @tweet.image.url, class: "iitem__image__photo"
-  .iitem__date
-    .iitem__date__catedategory
-      = @tweet.category
-    .iitem__date__bottan
-      .iitem__date__bottan__good
-        - if current_user.already_liked?(@tweet)
-          = button_to 'いいね済み', tweet_like_path(@tweet), method: :delete, class: "iitem__date__bottan__good__push"
-        - else
-          = button_to 'いいね', tweet_likes_path(@tweet), class: "iitem__date__bottan__good__push"
-        = @tweet.likes.count
-      .iitem__date__bottan__good
-      .iitem__date__bottan__shop
-        - if @tweet.category == "メンズ"
-          = link_to "https://awaker.paintory.com/product-category/cat001/" do
-            SHOP
-        - elsif @tweet.category == "レディース"
-          = link_to "https://awaker.paintory.com/product-category/cat002/" do
-            SHOP
-        - elsif @tweet.category == "キッズ"
-          = link_to "https://awaker.paintory.com/product-category/cat003/" do
-            SHOP
-        - elsif @tweet.category == "パーカー"
-          = link_to "https://awaker.paintory.com/product-category/cat030/" do
-            SHOP
-        - elsif @tweet.category == "スウェット"
-          = link_to "https://awaker.paintory.com/product-category/cat040/" do
-            SHOP
-        - elsif @tweet.category == "Tシャツ"
-          = link_to "https://awaker.paintory.com/product-category/cat010/" do
-            SHOP
-        - elsif @tweet.category == "ロンパース"
-          = link_to "https://awaker.paintory.com/product-category/cat020/" do
-            SHOP
-        - elsif @tweet.category == "アウター"
-          = link_to "https://awaker.paintory.com/product-category/cat080/" do
-            SHOP
-        - else
-          = link_to "https://awaker.paintory.com/" do
-            SHOP
-    .iitem__date__comment
-      = @tweet.text
+  .test
+    .iitem__title
+      .iitem__title__name
+        = link_to "/",class:"item__title__name" do
+          %i.fas.fa-angle-double-left
+      .iitem__title__nam
+        = link_to "/users/#{@tweet.user.id}",class:"item__title__na" do
+          = @tweet.user.nickname
+        さんの投稿♪
+    .iitem-image
+      .iitem__image
+        %ul
+          %li
+            #mainImage
+              = image_tag @tweet.toukouimages.first.image.url, class: "iitem__image__photo"
+      .iitem__sub-image
+        #imageList
+          %ul
+            - @tweet.toukouimages.each do |tweet|
+              =image_tag tweet.image.url, class: "iitem__image__photo__list"
+    .iitem__date
+      .iitem__date__catedategory
+        = @tweet.catchcopy
+        .iitem__date__catedategory__brand
+          カテゴリー：
+          = @tweet.category.name
+        .iitem__date__catedategory__brand
+          ブランド：
+          = @tweet.brand.name
+        - if @tweet.url.present?
+          .iitem__date__catedategory__brand.flex
+            商品ページ：
+            .iitem__date__bottan__shop
+              = link_to "#{@tweet.url}" do
+                商品ページへ
+        .tags
+          - @tweet.tags.each do |tag|
+            .iitem__date__catedategory__tag
+              = tag.tag_name
+      
+      .iitem__date__bottan
+        .iitem__date__bottan__good
+          - if current_user.already_liked?(@tweet)
+            = button_to tweet_like_path(@tweet), method: :delete, class: "iitem__date__bottan__good__push" do
+              登録済み
+              %i.fas.fa-star
+              = @tweet.likes.count
+          - else
+            = button_to tweet_likes_path(@tweet), class: "iitem__date__bottan__good__push" do
+              お気に入り
+              %i.far.fa-star
+              = @tweet.likes.count
+        
+      .iitem__date__comment
+        = @tweet.text
