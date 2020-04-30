@@ -1,12 +1,11 @@
 .item{
   width: 100%;
-  padding-top: 115px;
   &__box{
     background-color: #ffffff;
     border: 1px rgb(198, 198, 198) solid;
     color: white;
-    height: 380px;
-    width: 280px;
+    height: 43vh;
+    width: 15vw;
     position: relative;
     float: left;
     margin: 10px;
@@ -27,20 +26,19 @@
       font-size: 25px;
     }
     &__box{
-      margin-left: 240px;
-      // bottom: 350px;
+      margin-left: 13vw;
     }
     &__delete{
       position: absolute;
-      // z-index: 6;
       text-decoration: none;
-      font-size: 2em;
+      font-size: 2vw;
       color: #bd5e8a;
     }
   }
   &__name{
     position: absolute;
-    top: 340px;
+    top: 43vh;
+    font-size: 1.1vw;
     background:  #ffffff;;
     border: 1px rgb(198, 198, 198) solid;
     width: 100%;
@@ -51,4 +49,11 @@
 .space{
   margin-top: 35%;
   margin-left: 35%;
+}
+.main-image{
+  height: 400px;
+  width: 100%;
+  display: block;
+  padding-top: 150px;
+  margin: 0 20% 0 20%;
 }

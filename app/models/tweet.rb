@@ -1,8 +1,10 @@
 class Tweet < ApplicationRecord
+
   validates :catchcopy, :text, :category_id, :brand_id, presence: true
   belongs_to :user
   belongs_to :category
-  has_many :toukouimages
+  belongs_to :brand
+  has_many :toukouimages, dependent: :destroy
   accepts_nested_attributes_for :toukouimages, allow_destroy: true
   has_many :tweet_tag_relations, dependent: :destroy
   has_many :tags, through: :tweet_tag_relations

@@ -1,4 +1,11 @@
 $(document).on('turbolinks:load', function(){
+  $(function() {
+    $('.first').on('click', function () {
+      $('.first').removeClass('first');
+      $('.item__contents__photoflame__container__label-box').removeClass('hidden-field');
+  
+    });
+  });
   $(function(){
     function buildHTML(count) {
       var html = `<div class="preview-box" id="preview-box__${count}">
@@ -18,7 +25,6 @@ $(document).on('turbolinks:load', function(){
       //プレビューボックスのwidthを取得し、maxから引くことでラベルのwidthを決定
       var prevContent = $('.item__contents__photoflame__container').prev();
       labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      console.log(labelWidth)
       $('.item__contents__photoflame__container').css('width', labelWidth);
     }
 
@@ -27,7 +33,7 @@ $(document).on('turbolinks:load', function(){
       //hidden-fieldのidの数値のみ取得
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //labelボックスのidとforを更新
-      $('item__contents__photoflame__container__label-box').attr({id: `label-box--${id}`,for: `tweet_toukouimages_attributes_${id}_image`});
+      $('.item__contents__photoflame__container__label-box').attr({id: `label-box--${id}`,for: `tweet_toukouimages_attributes_${id}_image`});
       //選択したfileのオブジェクトを取得
       var file = this.files[0];
       var reader = new FileReader();
@@ -90,12 +96,5 @@ $(document).on('turbolinks:load', function(){
       }
     });
   });
-})
-
-$(function() {
-  $('.first').on('click', function () {
-    $('.first').removeClass('first');
-    $('.item__contents__photoflame__container__label-box').removeClass('hidden-field');
-
-  });
 });
+
