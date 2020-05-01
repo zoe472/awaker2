@@ -5,7 +5,6 @@ class TweetsController < ApplicationController
     @tweets = Tweet.includes(:user)
     @new = Tweet.includes(:user).last(4)
     @like = Like.new
-    # @tweets = Tweet.all
   end
 
   def show
