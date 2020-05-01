@@ -8,11 +8,13 @@
         - if user_signed_in? && current_user.id == tweet.user_id
           = link_to "/tweets/#{tweet.id}", method: :delete, class: "item__box__delete" do
             %i.fas.fa-window-close
-      %ul.item__name
-        %li.side-bar__menue__device
+      .item__name
+        .side-bar__menue__device
           = link_to "/users/#{tweet.user.id}",class:"side-bar__menue__link" do
             = image_tag "first-icon.PNG" ,class: "side-bar__menue__device__icon space"
-        = tweet.catchcopy
-        %i.fas.fa-star
-        = tweet.likes.count
+        .side-bar__menue__copy
+          = tweet.catchcopy
+        .side-bar__menue__star
+          %i.fas.fa-star
+          = tweet.likes.count
         

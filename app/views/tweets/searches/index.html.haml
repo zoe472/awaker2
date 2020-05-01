@@ -1,4 +1,18 @@
 .wrapper
   = render "shared/side_bar"
-  = render "shared/item"
-  
+  - if user_signed_in? && @tweets.present?
+    .main-image
+      = "キャッチコピーや紹介文に「#{@keyword}」を含む投稿"
+      = render "shared/new-list", { new: @tweets }
+  - if user_signed_in? && @tag.present?
+    .main-image
+      = "タグに「#{@keyword}」を含む投稿"
+      = render "shared/new-list", { new: @tag }
+  - if user_signed_in? && @posts.present?
+    .main-image
+      = "ブランドに「#{@keyword}」を含む投稿"
+      = render "shared/new-list", { new: @posts }
+  - if user_signed_in? && @category.present?
+    .main-image
+      = "カテゴリーに「#{@keyword}」を含む投稿"
+      = render "shared/new-list", { new: @category }

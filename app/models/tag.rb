@@ -9,4 +9,11 @@ class Tag < ApplicationRecord
   def downcase_tag_name
     self.tag_name.downcase!
   end
+
+  def self.tagsearch(search)
+    @tag = Tag.find_by(['tag_name LIKE ?', "%#{search}%"])
+    if @tag.present?
+      Tweet.left_joins( :tweet_tag_relations ).where(['tag_id LIKE ?', "%#{@tag.id}%"])
+    end
+  end
 end

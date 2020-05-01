@@ -28,6 +28,17 @@
   &__menue{
     position: relative;
     margin: 0 10% 0 10%;
+    &__copy{
+      height: 6vh;
+      width: 9vw;
+      padding-top: 1vh;
+      text-align: center;
+    }
+    &__star{
+      padding-top: 1.3vh;
+      color:  #ff7c5c;;
+      padding-left: 0.2vw;
+    }
     &__device{
       display:inline-block;
       padding-right: 6%;
