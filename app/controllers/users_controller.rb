@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_brand, only: [:index, :show, :like]
 
   def index
   end
@@ -10,8 +11,14 @@ class UsersController < ApplicationController
   end
 
   def like
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
     @likes = Like.where(user_id: @user.id)
-    
   end
+end
+
+private
+
+def set_brand
+  @parents = Category.all
+  @brand = Brand.all
 end
