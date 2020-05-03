@@ -1,3 +1,9 @@
 .wrapper
- = render "shared/side_bar"
- = render "shared/likelist"
+= render "shared/side_bar"
+.main-image
+  お気に入りアイテム
+  - if @likes.present?
+    = render "shared/likelist", { new: @likes }
+  - else 
+    .non_item
+      まだお気に入りがありません

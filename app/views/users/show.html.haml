@@ -1,3 +1,9 @@
 .wrapper
- = render "shared/side_bar"
- = render "shared/item"
+= render "shared/side_bar"
+.main-image
+  投稿したアイテム
+  - if @tweets.present?
+    = render "shared/new-list", { new: @tweets }
+  - else 
+    .non_item
+      まだ投稿がありません

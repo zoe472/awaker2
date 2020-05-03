@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :move_to_index, except: [:index, :search]
+  before_action :set_brand, except: [:destroy]
   def index
     @good_ranks = Tweet.includes(:user).find(Like.group(:tweet_id).order('count(tweet_id) desc').limit(4).pluck(:tweet_id))
     @tweets = Tweet.includes(:user)
@@ -15,14 +16,10 @@ class TweetsController < ApplicationController
   def new
     @tweet = Tweet.new
     @images = @tweet.toukouimages.build
-    @parents = Category.all
-    @brand = Brand.all
   end
 
  
   def create
-    @parents = Category.all
-    @brand = Brand.all
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
       tag_list = tag_params[:tag_names].split(/[[:blank:]]+/).select(&:present?)
@@ -53,6 +50,11 @@ private
 
   def tag_params
     params.require(:tweet).permit(:tag_names)
+  end
+
+  def set_brand
+    @parents = Category.all
+    @brand = Brand.all
   end
 
   def move_to_index
