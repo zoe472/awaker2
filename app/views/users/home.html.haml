@@ -1,0 +1,43 @@
+.wrapper
+  = render "shared/side_bar"
+  .iitem
+    = @user.nickname
+    のマイページ
+    .test
+      .mypage__name
+        ユーザー名 : 
+        .mypage__name__myname
+          = @user.nickname
+      .mypage__item
+        最近の投稿
+        .item
+          - @tweets.each do |tweet|
+            .item__box.mypage__size
+              = link_to "/tweets/#{tweet.id}", method: :get, class: "item__link" do
+                = image_tag tweet.toukouimages.first.image.url, class: "item__box__view"
+      .mypage__item
+        お気に入りアイテム
+        .item
+          - @likes.each do |like|
+            - tweet = Tweet.find_by(id: like.tweet_id)
+            .item__box.mypage__size
+              = link_to "/tweets/#{tweet.id}", method: :get, class: "item__link" do
+                = image_tag tweet.toukouimages.first.image.url, class: "item__box__view"
+      .mypage__name
+        マイブランド:
+        - if @brands.present?
+          .mypage__name__myname
+            = @brands.name
+        - elsif @quest.present?
+          .mypage__name__myname
+            = @quest.brandname
+          .iitem__date__bottan__shop
+            申請中
+        - elsif user_signed_in? && current_user.id == @user.id
+          .mypage__name__myname
+            .iitem__date__bottan__shop
+              = link_to new_quest_path do
+                申請する
+        - else
+          .mypage__name__myname
+            登録なし

@@ -1,4 +1,5 @@
 class Brand < ApplicationRecord
+  belongs_to :quest
   has_many :tweets
 
   def self.brandsearch(search)
