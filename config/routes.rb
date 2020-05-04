@@ -8,7 +8,15 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'like'
+      get 'home'
     end
+  end
+
+  resources :quests, only: [:new, :create, :show, :destroy] do
+    resources :brands
+  end
+  namespace :admin do
+    resources :users
   end
   resources :tweets do
     resources :likes, only: [:create, :destroy]

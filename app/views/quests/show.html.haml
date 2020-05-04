@@ -1,0 +1,20 @@
+.item
+  .item__title
+    .item__title__title
+      ブランド申請
+  .item__form
+    .item__contents
+      = form_with model: [@quest, @brands], local: true do |f|
+        .item__date
+        %h3
+          = @quest.brandname
+          = @quest.user_id
+          = f.text_field :name, value: @quest.brandname, rows: "10",class: 'item__date__comment__title non-display'
+          = f.text_field :user_id, value: @quest.user_id, rows: "10",class: 'item__date__comment__title non-display'
+          .item__date__bottan
+            .item__date__bottan__shop
+              = f.submit "登録する", class: 'item__date__bottan__shop__send'
+          .item__date__bottan
+            .item__date__bottan__shop
+              = link_to "/quests/#{@quest.id}", method: :delete, class: "item__date__bottan__shop__send" do
+                否認する

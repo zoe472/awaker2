@@ -37,8 +37,6 @@ class TweetsController < ApplicationController
     tweet = Tweet.find(params[:id])
     tweet.destroy
     redirect_to root_path, notice:'itemを削除しました'
-    
-
   end
 
   

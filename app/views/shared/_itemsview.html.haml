@@ -6,7 +6,7 @@
         = link_to "/",class:"item__title__name" do
           %i.fas.fa-angle-double-left
       .iitem__title__nam
-        = link_to "/users/#{@tweet.user.id}",class:"item__title__na" do
+        = link_to home_user_path(id: @tweet.user.id),class:"item__title__na" do
           = @tweet.user.nickname
         さんの投稿♪
     .iitem-image

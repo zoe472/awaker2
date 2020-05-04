@@ -13,5 +13,7 @@ we3 = Category.create(name: "ベビー")
 noselect = Category.create(name: "その他")
 
 Brand.create(name: "Awaker")
-Brand.create(name: "ダミーブランド１")
 Brand.create(name: "その他")
+
+user = User.new(:email => 'awaker@gmail.com', :password => 'weareawaker', :nickname => 'Awaker', :admin => true)
+user.save!

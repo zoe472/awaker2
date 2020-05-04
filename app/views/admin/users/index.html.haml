@@ -1,0 +1,70 @@
+.side-bar
+  .side-bar__user
+    = link_to "/",class:"side-bar__user__link" do
+      = image_tag "111.png" ,class: "side-bar__user__icon"
+      
+    .search__box
+      管理者専用ページ
+
+  .side-bar__decolate
+    .side-bar__menue
+      %ul.mycate
+        %li.side-bar__menue__device.pulldown
+          = link_to "#",class:"side-bar__menue__link " do
+            [MITETE]って何?       
+        %li.side-bar__menue__device.pulldown
+          = link_to "/users/",class:"side-bar__menue__link" do
+            = image_tag "first-icon.PNG" ,class: "side-bar__menue__device__icon icon-height"
+            = current_user.nickname
+          %ul.top__menue
+            %li.top__menue__item__form__btn
+              = link_to "#",class:"btn" do
+                プロフィール
+            %li.top__menue__item__form__btn
+              = link_to admin_users_path,class:"btn" do
+                管理画面
+            %li.top__menue__item__form__btn
+              = link_to destroy_user_session_path, method: :delete, class:"btn" do
+                ログアウト
+
+.iitem
+  .fontsize_midium.margintop_big
+    ブランド申請一覧
+  .test.admin
+    - if @quest.present?
+      - @quest.each do |quest|
+        .admin__box
+          user_id:
+          = quest.user_id
+          ブランド名:
+          = quest.brandname
+          = link_to quest_path(quest.id),class:"iitem__date__bottan__shop" do
+            確認する
+    - else
+      .admin__box
+        現在、申請はありません
+  .fontsize_midium.margintop_big
+    ブランド一覧
+  .test.admin
+    - @brand.each do |quest|
+      .admin__box
+        ID:
+        = quest.id
+        user_id:
+        = quest.user_id
+        ブランド名:
+        = quest.name
+
+  .fontsize_midium.margintop_big
+    管理画面：ユーザー一覧
+  .test.admin
+    - @users.each do |user|
+      .admin__box
+        ID:
+        = user.id
+        ユーザー名:
+        = user.nickname
+        |
+        = user.created_at
+
+

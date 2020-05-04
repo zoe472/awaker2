@@ -1,0 +1,16 @@
+.wrapper
+  = render "shared/side_bar"
+  .item
+    .item__title
+      .item__title__title
+        ブランド申請
+    .item__form
+      .item__contents
+        = form_with model: @quest, local: true do |f|
+          .item__date
+          %h3
+            ブランド名
+          = f.text_field :brandname, placeholder: "申請するブランド名を入力" , rows: "10",class: 'item__date__comment__title'
+          .item__date__bottan
+            .item__date__bottan__shop
+              = f.submit "申請する", class: 'item__date__bottan__shop__send'

@@ -40,29 +40,42 @@
           %li.side-bar__menue__device.pulldown
             = link_to "#",class:"side-bar__menue__link " do
               [MITETE]って何?
-          %li.side-bar__menue__device.pulldown
-            = link_to "/users/",class:"side-bar__menue__link" do
-              = image_tag "first-icon.PNG" ,class: "side-bar__menue__device__icon icon-height"
-              = current_user.nickname
-            %ul.top__menue
-              %li.top__menue__item__form__btn
-                = link_to "#",class:"btn" do
-                  プロフィール
-              %li.top__menue__item__form__btn
-                = link_to new_tweet_path,class:"btn" do
-                  投稿する
-              %li.top__menue__item__form__btn
-                = link_to "/users/#{current_user.id}",class:"btn" do
-                  自分の投稿
-              %li.top__menue__item__form__btn
-                = link_to "/users/#{current_user.id}/like",class:"btn" do
-                  いいねした投稿
-              %li.top__menue__item__form__btn
-                = link_to "#",class:"btn" do
-                  設定
-              %li.top__menue__item__form__btn
-                = link_to destroy_user_session_path, method: :delete, class:"btn" do
-                  ログアウト
+          - unless current_user.admin?
+            %li.side-bar__menue__device.pulldown
+              = link_to home_user_path(id: current_user.id),class:"side-bar__menue__link" do
+                = image_tag "first-icon.PNG" ,class: "side-bar__menue__device__icon icon-height"
+                = current_user.nickname
+              %ul.top__menue
+                %li.top__menue__item__form__btn
+                  = link_to home_user_path(id: current_user.id),class:"btn" do
+                    プロフィール
+                %li.top__menue__item__form__btn
+                  = link_to new_tweet_path,class:"btn" do
+                    投稿する
+                %li.top__menue__item__form__btn
+                  = link_to "/users/#{current_user.id}",class:"btn" do
+                    自分の投稿
+                %li.top__menue__item__form__btn
+                  = link_to "/users/#{current_user.id}/like",class:"btn" do
+                    いいねした投稿
+                %li.top__menue__item__form__btn
+                  = link_to destroy_user_session_path, method: :delete, class:"btn" do
+                    ログアウト
+          -else
+            %li.side-bar__menue__device.pulldown
+              = link_to "/users/",class:"side-bar__menue__link" do
+                = image_tag "first-icon.PNG" ,class: "side-bar__menue__device__icon icon-height"
+                = current_user.nickname
+              %ul.top__menue
+                %li.top__menue__item__form__btn
+                  = link_to "#",class:"btn" do
+                    プロフィール
+                %li.top__menue__item__form__btn
+                  = link_to admin_users_path,class:"btn" do
+                    管理画面
+                %li.top__menue__item__form__btn
+                  = link_to destroy_user_session_path, method: :delete, class:"btn" do
+                    ログアウト
       - else
         .side-bar__menue__device
         = link_to new_user_session_path,class:"side-bar__menue__link" do
