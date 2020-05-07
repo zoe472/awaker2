@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :users
   end
   resources :tweets do
+    collection do
+      get 'commercial'
+    end
     resources :likes, only: [:create, :destroy]
   end
 end
