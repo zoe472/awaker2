@@ -1,25 +1,34 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ名
+### MITETE
 
-Things you may want to cover:
+## アプリ概要
 
-* Ruby version
+### 投稿型広告アプリ、画像や文章を投稿することで簡単な商品紹介ページの作成が可能
+### ブランド、タグ、キーワードによる検索が可能
+### 自分の投稿、お気に入りした投稿はマイページから確認可能
+### マイページからブランド名を申請し、管理ユーザーで許可することでマイブランドをブランドのカテゴリーに追加可能
 
-* System dependencies
+## 本番環境(デプロイ先　テストアカウント＆ID)
 
-* Configuration
+### URL **https://awaker2.herokuapp.com/**
+### テストアカウント
 
-* Database creation
+## 制作意図
 
-* Database initialization
+### ネットでの発信力が弱いファッションブランドの広告がわりになればと思い作成しました。
+### ツイッターやインスタグラムでは他の投稿に埋もれてしまう、
+### 自分の投稿までたどり着いてもらえないと言った問題を解消すべく
+### 通常の検索に加え、ブランド単位の検索機能を実装。
+### また、誰でも投稿可能なためそのブランドのユーザーも投稿を行うことができます。
+### 各ユーザーが自分の着こなしを投稿することで、一つのアイテムでも多種多様な広告が存在することになり
+### ブランド主も自分で全ての広告を用意する必要がないため、その分の費用を削減することができます。
 
-* How to run the test suite
+### そして複数のブランドの投稿が見られるため、サイトの訪問者が投稿を見て別のブランドをしるという
+### ユーザーの中継役になることのできるサイトを目指し作成いたしました。
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
 * ...
 ## users テーブル
