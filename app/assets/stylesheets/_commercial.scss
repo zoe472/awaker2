@@ -1,0 +1,38 @@
+.cm{
+  background-image: image-url("cm1.jpg");
+  height: 40vh;
+  margin: 3% 17% 0 17%;
+  &__title{
+    padding: 1vw;
+    padding-top: 4vh;
+    font-size: 2vw;
+    color:rgb(240, 240, 240);
+    font-weight: bold;
+  }
+  &__text{
+    color:rgb(237, 237, 237);
+    font-size: 1.5vw;
+    padding: 0 0 0.3vh 2vw ;
+  }
+}
+.cm2{
+  background-image: image-url("slide1.PNG");
+  height: 40vh;
+  margin: 3% 17% 0 17%;
+  background-size: cover;
+}
+
+.layerTransparent{
+	background-color:rgba(0, 0, 0, 0.28);;
+	height: 40vh;
+}
+.layerTransparent2{
+	background-color:rgba(0, 0, 0, 0.646);;
+	height: 40vh;
+}
+.cm-head{
+  background-color: #ffffff;
+  font-size: 1.5vw;
+  padding-left: 17vw;
+
+}
