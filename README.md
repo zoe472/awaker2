@@ -2,7 +2,7 @@
 
 ## アプリ名
 MITETE
-<img src="***https://github.com/zoe472/awaker2/blob/master/app/assets/images/111.png***" width="50px">
+<img src="https://github.com/zoe472/awaker2/blob/master/app/assets/images/111.png" width="50px">
 
 ## アプリ概要
 
