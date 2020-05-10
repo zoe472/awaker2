@@ -4,7 +4,7 @@
 ##### MITETE
 <img src="https://github.com/zoe472/awaker2/blob/master/app/assets/images/111.png" width="200px">
 
-## アプリ概要
+## :green_book:アプリ概要
 
 #### ・投稿型広告アプリ、画像や文章を投稿することで簡単な商品紹介ページの作成が可能
 #### ・ブランド、タグ、キーワードによる検索が可能
@@ -32,14 +32,55 @@ URL **https://awaker2.herokuapp.com/**
 ユーザーとブランドの中継役になることのできるサイトを目指し作成いたしました。
 
 
+## DB設計
 
-* ...
-## users テーブル
+### brands テーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, index: true|
-|image|string|
+|name|string|
+|user_id|interger|
+
+### brands テーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|
+
+### brands テーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|tweet_id|bigint|
+|user_id|bigint|
+
+### quests テーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|brandname|string|
+|user_id|interger|
+
+### tags テーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|brandname|string|
+|user_id|interger|
+
+### toukouimages テーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|image|text|
+|user_id|interger|
+
+### users テーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|
+|admin|boolean|
 |email|string|null: false|
 |password|string|null: false|
 ### Association
