@@ -1,7 +1,7 @@
 # README
 
 ## アプリ名
-MITETE
+##### MITETE
 <img src="https://github.com/zoe472/awaker2/blob/master/app/assets/images/111.png" width="200px">
 
 ## アプリ概要
