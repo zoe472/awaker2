@@ -39,9 +39,12 @@
           - @tweet.tags.each do |tag|
             .iitem__date__catedategory__tag
               = tag.tag_name
+          
       
       .iitem__date__bottan
         .iitem__date__bottan__good
+          = link_to "https://twitter.com/share?ref_src=twsrc%5Etfw", "Tweet", data: {text: "【MITETE】このアイテムがおすすめ！是非、みてみて！", hashtags: "#MITETE", show_count:"false"}, class: "twitter-share-button" 
+          %script{:async => "", :charset => "utf-8", :src => "https://platform.twitter.com/widgets.js"}
           - if current_user.already_liked?(@tweet)
             = button_to tweet_like_path(@tweet), method: :delete, class: "iitem__date__bottan__good__push" do
               登録済み
@@ -52,6 +55,7 @@
               お気に入り
               %i.far.fa-star
               = @tweet.likes.count
-        
+         
+         
       .iitem__date__comment
         = @tweet.text
