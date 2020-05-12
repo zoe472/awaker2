@@ -38,7 +38,7 @@ URL **https://awaker2.herokuapp.com/**
  一目で使い方がわかるサイトを目指し、検索結果の分類表示や投稿削除ボタンの表示を簡素化するなど
  ユーザーに操作の手間を取らせないことを工夫いたしました。 
  
-<img src ="https://user-images.githubusercontent.com/58350923/81659938-291be580-9475-11ea-8edf-6b17d81507b8.png" width="600px">
+<img src ="https://user-images.githubusercontent.com/58350923/81661108-9c722700-9476-11ea-8442-f16343daab4f.jpeg" width="600px">
 
 検索結果の分類表示のgif画像 **https://gyazo.com/1344a282166d6e8d6611174bea436d15**
 
