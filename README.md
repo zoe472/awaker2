@@ -16,7 +16,7 @@
 URL **https://awaker2.herokuapp.com/**
 テストアカウント: email 「iii@gmail.com」
              pass  「iiiiiiiiii」
-管理アカウント: email [Awaker@gmail.com]
+管理アカウント: email [awaker@gmail.com]
             pass [weareawaker]
 
 ## :blue_book:制作意図
@@ -49,6 +49,7 @@ URL **https://awaker2.herokuapp.com/**
  サイト管理者にも使いやすいサイトにすべく、管理画面もシンプルに実装。
  主な役割である、ブランド申請の認可もサイト上のボタンを２回操作するのみで完了するなど
  誰にでも操作できるサイトを意識して実装いたしました。
+ （管理画面は管理ユーザーログイン後、マイページの管理画面から確認できます）
 
 
 ## DB設計
