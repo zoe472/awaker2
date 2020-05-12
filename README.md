@@ -54,7 +54,11 @@ URL **https://awaker2.herokuapp.com/**
  （管理画面は管理ユーザーログイン後、マイページの管理画面から確認できます）  
  
  <img src ="https://user-images.githubusercontent.com/58350923/81662538-af85f680-9478-11ea-9b5e-e9eb828d3f27.jpeg" width="600px">
- 
+
+##開発環境
+Rails 5.2.4.2  
+ruby 2.5.1p57  
+MySQL 5.6.47
  
 
 
