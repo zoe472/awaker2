@@ -53,8 +53,7 @@ URL **https://awaker2.herokuapp.com/**
  誰にでも操作できるサイトを意識して実装いたしました。  
  （管理画面は管理ユーザーログイン後、マイページの管理画面から確認できます）  
  
- <img src ="https://user-images.githubusercontent.com/58350923/81662538-af85f680-9478-11ea-9b5e-e9eb828d3f27.jpeg
- " width="600px">
+ <img src ="https://user-images.githubusercontent.com/58350923/81662538-af85f680-9478-11ea-9b5e-e9eb828d3f27.jpeg" width="600px">
  
  
 
