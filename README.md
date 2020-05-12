@@ -40,19 +40,28 @@ URL **https://awaker2.herokuapp.com/**
 |------|----|-------|
 |name|string|
 |user_id|interger|
-
-### brands テーブル
+### Association
+- belongs_to :quest
+- has_many :tweets
+### categories テーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|
 
-### brands テーブル
+### Association
+has_many :tweets
+
+### likes テーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |tweet_id|bigint|
 |user_id|bigint|
+
+### Association
+- belongs_to :tweet
+- belongs_to :user
 
 ### quests テーブル
 
@@ -61,6 +70,9 @@ URL **https://awaker2.herokuapp.com/**
 |brandname|string|
 |user_id|interger|
 
+### Association
+- has_one :brand
+
 ### tags テーブル
 
 |Column|Type|Options|
@@ -68,12 +80,19 @@ URL **https://awaker2.herokuapp.com/**
 |brandname|string|
 |user_id|interger|
 
+### Association
+- has_many :tweet_tag_relations, dependent: :destroy
+- has_many :tweets, through: :tweet_tag_relations
+
 ### toukouimages テーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |image|text|
 |user_id|interger|
+
+### Association
+- belongs_to :tweet
 
 ### users テーブル
 
@@ -85,36 +104,31 @@ URL **https://awaker2.herokuapp.com/**
 |password|string|null: false|
 ### Association
 - has_many :tweets
-- has_many :comments
+- has_many :likes, dependent: :destroy
+- has_many :liked_tweets, through: :likes, source: :tweet
+
 
 ## tweets テーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|text|text|
+|text|string|
+|catchcopy|string|
 |category_id|integer|null: false, foreign_key: true|
+|brand_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
+
 ### Association
 - belongs_to :user
-- belomgs_to :category
-- has_many :comments
+- belongs_to :category
+- belongs_to :brand
+- has_many :toukouimages, dependent: :destroy
+- accepts_nested_attributes_for :toukouimages, allow_destroy: true
+- has_many :tweet_tag_relations, dependent: :destroy
+- has_many :tags, through: :tweet_tag_relations
+- has_many :likes, dependent: :destroy
+- has_many :liked_users, through: :likes, source: :user
 
-## commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|tweets_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :tweets
 
-## category テーブル
-|Column|Type|Options|
-|------|----|-------|
-|category|string|null: false|
-|url|string|null: false|
-|image|string|null: false|
-### Association
-- has_one :tweets
+
