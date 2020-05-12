@@ -16,6 +16,8 @@
 URL **https://awaker2.herokuapp.com/**
 テストアカウント: email 「iii@gmail.com」
              pass  「iiiiiiiiii」
+管理アカウント: email [Awaker@gmail.com]
+            pass [weareawaker]
 
 ## :blue_book:制作意図
 
