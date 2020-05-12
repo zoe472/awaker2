@@ -105,6 +105,17 @@ has_many :tweets
 - has_many :tweet_tag_relations, dependent: :destroy
 - has_many :tweets, through: :tweet_tag_relations
 
+### tweet_tag_relations テーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|tweet_id|interger|
+|tag_id|interger|
+
+### Association
+- belongs_to :tweet
+- belongs_to :tag
+
 ### toukouimages テーブル
 
 |Column|Type|Options|
