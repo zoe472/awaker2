@@ -133,7 +133,7 @@ has_many :tweets
 
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
+|image|string|
 |text|string|
 |catchcopy|string|
 |category_id|integer|null: false, foreign_key: true|
