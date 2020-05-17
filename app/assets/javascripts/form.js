@@ -1,11 +1,4 @@
 $(document).on('turbolinks:load', function(){
-  $(function() {
-    $('.first').on('click', function () {
-      $('.first').removeClass('first');
-      $('.item__contents__photoflame__container__label-box').removeClass('hidden-field');
-  
-    });
-  });
   $(function(){
     function buildHTML(count) {
       var html = `<div class="preview-box" id="preview-box__${count}">
@@ -19,6 +12,26 @@ $(document).on('turbolinks:load', function(){
                     </div>
                   </div>`
       return html;
+    }
+
+    if (window.location.href.match(/\/tweets\/\d+\/edit/)){
+      //登録済み画像のプレビュー表示欄の要素を取得する
+      var prevContent = $('.item__contents__photoflame__container').prev();
+      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+      $('.item__contents__photoflame__container').css('width', labelWidth);
+      //プレビューにidを追加
+      $('.preview-box').each(function(index, box){
+        $(box).attr('id', `preview-box__${index}`);
+      })
+      //削除ボタンにidを追加
+      $('.delete-box').each(function(index, box){
+        $(box).attr('id', `delete_btn_${index}`);
+      })
+      var count = $('.preview-box').length;
+      //プレビューが5あるときは、投稿ボックスを消しておく
+      if (count == 5) {
+        $('.item__contents__photoflame__container').hide();
+      }
     }
 
     function setLabel() {
@@ -57,6 +70,9 @@ $(document).on('turbolinks:load', function(){
         if (count == 5) { 
           $('.item__contents__photoflame__container').hide();
         }
+        if ($(`#tweet_toukouimages_attributes_${id}__destroy`)){
+          $(`#tweet_toukouimages_attributes_${id}__destroy`).prop('checked',false);
+        } 
 
         //ラベルのwidth操作
         setLabel();
@@ -76,23 +92,37 @@ $(document).on('turbolinks:load', function(){
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       //取得したidに該当するプレビューを削除
       $(`#preview-box__${id}`).remove();
-      //フォームの中身を削除 
-      $(`#tweet_toukouimages_attributes_${id}_image`).val("");
+      if ($(`#tweet_toukouimages_attributes_${id}__destroy`).length == 0) {
+        //フォームの中身を削除 
+        $(`#tweet_toukouimages_attributes_${id}_image`).val("");
 
-      //削除時のラベル操作
-      var count = $('.preview-box').length;
-      //5個めが消されたらラベルを表示
-      if (count == 4) {
-        $('.item__contents__photoflame__container').show();
-      }
-      if (count == 0){
-        $('.item__contents__photoflame__container__label-box').attr({id: `label-box--0`,for: `tweet_toukouimages_attributes_0_image`});
-      }
-      setLabel(count);
+        //削除時のラベル操作
+        var count = $('.preview-box').length;
+        //5個めが消されたらラベルを表示
+        if (count == 4) {
+          $('.item__contents__photoflame__container').show();
+        }
+        if (count == 0){
+          $('.item__contents__photoflame__container__label-box').attr({id: `label-box--0`,for: `tweet_toukouimages_attributes_0_image`});
+        }
+        setLabel(count);
 
-      if(id < 5){
-        //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
-        $('.item__contents__photoflame__container__label-box').attr({id: `label-box--${id}`,for: `tweet_toukouimages_attributes_${id}_image`});
+        if(id < 5){
+          //削除された際に、空っぽになったfile_fieldをもう一度入力可能にする
+          $('.item__contents__photoflame__container__label-box').attr({id: `label-box--${id}`,for: `tweet_toukouimages_attributes_${id}_image`});
+        }
+      } else {
+        $(`#tweet_toukouimages_attributes_${id}__destroy`).prop('checked',true);
+        //5個めが消されたらラベルを表示
+        if (count == 4) {
+          $('.item__contents__photoflame__container').show();
+        }
+        setLabel();
+        //ラベルのidとforの値を変更
+        //削除したプレビューのidによって、ラベルのidを変更する
+        if(id < 5){
+          $('.item__contents__photoflame__container__label-box').attr({id: `label-box--${id}`,for: `tweet_toukouimages_attributes_${id}_image`});
+        }
       }
     });
   });
