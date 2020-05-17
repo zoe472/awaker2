@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   before_action :move_to_index, except: [:index, :search]
   before_action :set_brand, except: [:destroy]
+  before_action :set_item, only: [:show, :edit, :update]
   def index
     @good_ranks = Tweet.includes(:user).find(Like.group(:tweet_id).order('count(tweet_id) desc').limit(4).pluck(:tweet_id))
     @tweets = Tweet.includes(:user)
@@ -9,7 +10,6 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweet = Tweet.find(params[:id])
     @like = Like.new
   end
 
@@ -32,6 +32,17 @@ class TweetsController < ApplicationController
     end
 
   end
+
+  def edit
+  end
+
+  def update
+    if @tweet.update(tweet_update_params)
+      redirect_to root_path
+    else
+      redirect_to edit_tweet_path(@tweet)
+    end
+  end
   
   def destroy
     tweet = Tweet.find(params[:id])
@@ -48,6 +59,14 @@ private
 
   def tag_params
     params.require(:tweet).permit(:tag_names)
+  end
+
+  def tweet_update_params
+    params.require(:tweet).permit(:catchcopy, :text, :category_id, :url, :brand_id, [toukouimages_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @tweet = Tweet.find(params[:id])
   end
 
   def set_brand

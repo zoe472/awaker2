@@ -20,6 +20,12 @@
           %ul
             - @tweet.toukouimages.each do |tweet|
               =image_tag tweet.image.url, class: "iitem__image__photo__list"
+        - if user_signed_in? && current_user.id == @tweet.user_id
+          = link_to edit_tweet_path(@tweet), class:"item__date__bottan__shop__send width20" do
+            商品を編集
+          = link_to tweet_path(@tweet), method: :delete, class: "item__date__bottan__shop__send width20" do
+            %i.fa.fa-trash 
+            削除する
     .iitem__date
       .iitem__date__catedategory
         = @tweet.catchcopy
