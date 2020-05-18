@@ -57,7 +57,7 @@ URL **https://awaker2.herokuapp.com/**
 
 ## 開発環境
 Rails 5.2.4.2  
-ruby 2.5.1
+ruby 2.5.1  
 MySQL 5.6.47
 
 ## 課題と今後実装したい機能
